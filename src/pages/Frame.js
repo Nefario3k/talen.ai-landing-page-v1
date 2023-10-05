@@ -14,7 +14,7 @@ const Frame = () => {
               src="/white-version01-3@2x.png"
             />
             <div className="align_between">
-              <a href="https://app.talen.ai/auth/register" className={styles.signUp}>Sign Up</a>
+              <a href="https://app.talen.ai/auth/contact-us" className={styles.signUp}>Sign Up</a>
               <a href="https://app.talen.ai/auth/login" className={styles.signIn}><span>Sign In</span></a>
             </div>
           </nav>
