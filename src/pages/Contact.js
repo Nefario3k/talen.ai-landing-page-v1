@@ -22,10 +22,10 @@ const formval = [
     colVal: 6,
   },
   {
-    id: 'user_request_emailAddress',
-    label: 'email address',
+    id: 'user_request_workEmail',
+    label: 'work email address',
     type: 'input',
-    name: 'emailAddress',
+    name: 'workEmail',
     colVal: 6,
   },
   {
@@ -89,7 +89,7 @@ const FormInputs = ({ formState, options, loading, setValue }) => {
             autoComplete="off"
             required
             disabled={loading}
-            type={element.name === 'emailAddress' ? 'email' : 'text'}
+            type={element.name === 'workEmail' ? 'email' : 'text'}
             name={element.name}
             id={element.id}
             placeholder={element.label}
@@ -132,7 +132,7 @@ const Frame = () => {
   const [formState, setFormState] = useState({
     firstName: '',
     lastName: '',
-    emailAddress: '',
+    workEmail: '',
     currentJobTitle: '',
     company: '',
     linkedin: '',
