@@ -4,7 +4,8 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import Frame from "./pages/Frame";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 import { useEffect } from "react";
 
 function App() {
@@ -44,8 +45,9 @@ function App() {
   }, [pathname]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Frame />} />
+    <Routes >
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/contact-us" element={<Contact />} />
     </Routes>
   );
 }

@@ -1,20 +1,25 @@
-import styles from "./Frame.module.css";
+import styles from "./Frame.module.scss";
+import {
+  Link
+} from "react-router-dom";
 
 const Frame = () => {
   return (
-    <section className={styles.frame}>
+    <section className={`${styles.frame} transIn`}>
       <div className={`${styles.frame__container} align_between`}>
         {/* top bar  */}
         <div className={styles.frame1}>
           {/* logo */}
           <nav className={`align_between`}>
-            <img
-              className={styles.whiteVersion013}
-              alt=""
-              src="/white-version01-3@2x.png"
-            />
+            <Link to='/'>
+              <img
+                className={styles.whiteVersion013}
+                alt=""
+                src="/white-version01-3@2x.png"
+              />
+            </Link>
             <div className="align_between">
-              <a href="https://app.talen.ai/auth/contact-us" className={styles.signUp}>Sign Up</a>
+              <Link to="/contact-us" className={styles.signUp}>Sign Up</Link>
               <a href="https://app.talen.ai/auth/login" className={styles.signIn}><span>Sign In</span></a>
             </div>
           </nav>
@@ -31,7 +36,7 @@ const Frame = () => {
               and hire qualified candidates across the globe.
             </article>
             <div className={`${styles.vectorParent} align_between`}>
-              <a href="https://app.talen.ai/auth/login" className={`${styles.signIn} ${styles.getStarted}`}><span>Get Started</span></a>
+              <Link to="/contact-us" className={`${styles.signIn} ${styles.getStarted}`}><span>Get Started</span></Link>
               <a href="https://www.youtube.com/embed/ZPa0DdaphrE?si=dX-f3Hq9atX4LNke" target="_blank" className={styles.groupParent}>
                 <img
                   className={styles.frameInner}
@@ -51,7 +56,7 @@ const Frame = () => {
           </aside>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 
