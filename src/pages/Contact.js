@@ -153,49 +153,6 @@ const Frame = () => {
       }
     };
     const fetchCradle = () => {
-      // (function (C, A, L) {
-      //   let p = function (a, ar) {
-      //     a.q.push(ar);
-      //   };
-      //   let d = C.document;
-      //   C.Cal =
-      //     C.Cal ||
-      //     function () {
-      //       let cal = C.Cal;
-      //       let ar = arguments;
-      //       if (!cal.loaded) {
-      //         cal.ns = {};
-      //         cal.q = cal.q || [];
-      //         d.head.appendChild(d.createElement("script")).src =
-      //           A;
-      //         cal.loaded = true;
-      //       }
-      //       if (ar[0] === L) {
-      //         const api = function () {
-      //           p(api, arguments);
-      //         };
-      //         const namespace = ar[1];
-      //         api.q = api.q || [];
-      //         typeof namespace === "string"
-      //           ? (cal.ns[namespace] = api) && p(api, ar)
-      //           : p(cal, ar);
-      //         return;
-      //       }
-      //       p(cal, ar);
-      //     };
-      // })(
-      //   window,
-      //   "https://schedule.usecradleapps.com/embed/embed.js",
-      //   "init"
-      // );
-      // Cal("init", { origin: "https://schedule.usecradleapps.com" });
-
-      // Cal("inline", {
-      //   elementOrSelector: "#my-cal-inline",
-      //   calLink: "david/introduction-to-cradle-schedule",
-      // });
-
-      // Cal("ui", { styles: { branding: { brandColor: "#000000" } } });
 
       (function (C, A, L) {
         let p = function (a, ar) {
@@ -295,10 +252,10 @@ const Frame = () => {
       return;
     } catch (err) {
       if (err?.response?.data?.message) {
-        toast.success(err.response.data.message);
+        toast.error(err.response.data.message);
         setErrors(err.response.data.message)
       } else {
-        toast.success(err.message);
+        toast.error(err.message);
         setErrors(err.message)
       }
       setLoading(false)
