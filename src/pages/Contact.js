@@ -142,6 +142,7 @@ const Frame = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
   const navigate = useNavigate();
+  // get countries and cradle 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -151,8 +152,97 @@ const Frame = () => {
         console.log(err)
       }
     };
+    const fetchCradle = () => {
+      // (function (C, A, L) {
+      //   let p = function (a, ar) {
+      //     a.q.push(ar);
+      //   };
+      //   let d = C.document;
+      //   C.Cal =
+      //     C.Cal ||
+      //     function () {
+      //       let cal = C.Cal;
+      //       let ar = arguments;
+      //       if (!cal.loaded) {
+      //         cal.ns = {};
+      //         cal.q = cal.q || [];
+      //         d.head.appendChild(d.createElement("script")).src =
+      //           A;
+      //         cal.loaded = true;
+      //       }
+      //       if (ar[0] === L) {
+      //         const api = function () {
+      //           p(api, arguments);
+      //         };
+      //         const namespace = ar[1];
+      //         api.q = api.q || [];
+      //         typeof namespace === "string"
+      //           ? (cal.ns[namespace] = api) && p(api, ar)
+      //           : p(cal, ar);
+      //         return;
+      //       }
+      //       p(cal, ar);
+      //     };
+      // })(
+      //   window,
+      //   "https://schedule.usecradleapps.com/embed/embed.js",
+      //   "init"
+      // );
+      // Cal("init", { origin: "https://schedule.usecradleapps.com" });
 
+      // Cal("inline", {
+      //   elementOrSelector: "#my-cal-inline",
+      //   calLink: "david/introduction-to-cradle-schedule",
+      // });
+
+      // Cal("ui", { styles: { branding: { brandColor: "#000000" } } });
+
+      (function (C, A, L) {
+        let p = function (a, ar) {
+          a.q.push(ar);
+        };
+        let d = C.document;
+        C.Cal =
+          C.Cal ||
+          function () {
+            let cal = C.Cal;
+            let ar = arguments;
+            if (!cal.loaded) {
+              cal.ns = {};
+              cal.q = cal.q || [];
+              d.head.appendChild(d.createElement("script")).src =
+                A;
+              cal.loaded = true;
+            }
+            if (ar[0] === L) {
+              const api = function () {
+                p(api, arguments);
+              };
+              const namespace = ar[1];
+              api.q = api.q || [];
+              typeof namespace === "string"
+                ? (cal.ns[namespace] = api) && p(api, ar)
+                : p(cal, ar);
+              return;
+            }
+            p(cal, ar);
+          };
+      })(
+        window,
+        "https://schedule.usecradleapps.com/embed/embed.js",
+        "init"
+      );
+      Cal("init", { origin: "https://schedule.usecradleapps.com" });
+
+      Cal("inline", {
+        elementOrSelector: "#my-cal-inline",
+        calLink: "pca/30min",
+      });
+
+      Cal("ui", { "theme": "light", styles: { branding: { brandColor: "#000000" } } });
+    }
     fetchData();
+    fetchCradle();
   }, []);
   // disable Btn
   const disableBtn = () => {
@@ -259,6 +349,20 @@ const Frame = () => {
             />
             {/* errors */}
             {errors ? <span className="col-12 transIn text-danger errorText">{errors}</span> : <></>}
+            <div className="py-3 col-12">
+              <p className="label m-0 p-0">
+                <span>
+                  Please schedule a call to finish your signup, then click the submit button after scheduling your call.
+                </span>
+              </p>
+            </div>
+            {/* craddle */}
+            <div className="py-3 col-12">
+              <div
+                style={{ width: '100%', height: '100%', overflow: 'auto' }}
+                id="my-cal-inline"
+              ></div>
+            </div>
             {/* button */}
             <div className="py-3 col-12 text-center">
               <button disabled={loading || disableBtn().disable} type="submit" className="btn Btn">
@@ -267,9 +371,9 @@ const Frame = () => {
             </div>
           </form>
         </div>
-      </div>
+      </div >
       <ToastContainer />
-    </div>
+    </div >
   );
 };
 
