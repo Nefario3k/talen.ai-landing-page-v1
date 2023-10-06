@@ -37,7 +37,7 @@ const Frame = () => {
             </article>
             <div className={`${styles.vectorParent} align_between`}>
               <Link to="/contact-us" className={`${styles.signIn} ${styles.getStarted}`}><span>Get Started</span></Link>
-              <a href="https://www.youtube.com/embed/ZPa0DdaphrE?si=dX-f3Hq9atX4LNke" target="_blank" className={styles.groupParent}>
+              <a href="https://www.youtube.com/watch?v=6MCr6kiw-tw" target="_blank" className={styles.groupParent}>
                 <img
                   className={styles.frameInner}
                   alt=""
