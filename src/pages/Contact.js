@@ -309,7 +309,7 @@ const Frame = () => {
             <div className="py-3 col-12">
               <p className="label m-0 p-0">
                 <span>
-                  Please schedule a call to finish your signup, then click the submit button after scheduling your call.
+                  Schedule a call with us to understand your hiring needs and get you started.
                 </span>
               </p>
             </div>
